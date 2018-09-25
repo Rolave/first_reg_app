@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>FirstRegApp</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <%= alert %>
+    <%= notice %>
+    <% if logged? %>
+      Bienvenido <%= current_user.email %>
+      <%= link_to 'Salir', session_path(current_user), method: :delete %>
+    <% else %>
+      Usuario no logueado
+    <% end %>
+    <%= yield %>
+  </body>
+</html>
